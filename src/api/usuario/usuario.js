@@ -35,8 +35,8 @@ router.post('/:cpf/imagem', function (req, res) {
   var config = {
     headers: {
       'Content-Type': 'application/json',
-      'app_id': 'efe6cc00',
-      'app_key': 'f86cadc55991210addba87d1d8736658',
+      'app_id': keys.app_id,
+      'app_key': keys.app_key,
     }
   };
   

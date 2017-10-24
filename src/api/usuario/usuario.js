@@ -62,9 +62,9 @@ router.post('/', function (req, res){
   var currentTime = new Date().getTime();
   var user = {
     nome: req.body.nome,
-    nmBeneficio: req.body.nm_beneficio,
-    cpf: req.body.cpf,
-    dtNascimento: req.body.dt_nascimento,
+    nmBeneficio: Number(req.body.nm_beneficio),
+    cpf: Number(req.body.cpf),
+    dtNascimento: Number(req.body.dt_nascimento),
     createdAt: currentTime,
     updatedAt: currentTime
   }
@@ -78,7 +78,7 @@ router.post('/', function (req, res){
         throw err;
       }
       console.log(result);
-      res.send(result)
+      res.send(result);
     });
   });
 });

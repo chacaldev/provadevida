@@ -1,0 +1,22 @@
+{
+  "name": "provadevida",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chacaldev/provadevida.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chacaldev/provadevida/issues"
+  },
+  "homepage": "https://github.com/chacaldev/provadevida#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}

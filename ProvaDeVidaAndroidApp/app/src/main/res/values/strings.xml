@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ProvaDeVidaAndroidApp</string>
+    <string name="serverip">192.168.0.142</string>
+    <string name="loginservice">login</string>
+    <string name="port">3000</string>
+    <string name="title_activity_enviar_foto">EnviarFoto</string>
+    <string name="hello_round">Hello Round World!</string>
+    <string name="hello_square">Hello Square World!</string>
+    <string name="usuarioservice">usuario</string>
+    <string name="validarmethod">validar</string>
+</resources>

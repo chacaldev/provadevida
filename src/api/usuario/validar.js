@@ -20,12 +20,12 @@ var validar = function (req, res) {
 
   axios.post('https://api.kairos.com/verify', payload, config)
     .then(function(resp) {
-      console.log(resp.data);
+      console.log(JSON.stringify(resp.data.images));
       res.send(resp.data);
     })
     .catch(function(err) {
       console.log(err);
-      res.send(err);
+      res.status(400).send(err);
     });  
 };
 

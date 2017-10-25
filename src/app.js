@@ -13,9 +13,8 @@ var myLogger = function (req, res, next) {
 
 app.use(myLogger);
 
-app.use(bodyParser.json()); 
+app.use(bodyParser.json({limit: '50mb'})); 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.limit('50mb'));
 
 app.use('/hello', hello);
 app.use('/usuario', usuario);

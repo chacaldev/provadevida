@@ -80,6 +80,8 @@ router.post('/', function (req, res){
       console.log(result);
       res.send(result);
     });
+
+    db.close();
   });
 });
 

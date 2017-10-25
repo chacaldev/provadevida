@@ -23,9 +23,10 @@ router.post('/', function (req, res){
       else {
         console.log(result);
         res.send(result)
-      }      
-      db.close();
+      }
     });
+
+    db.close();
   });
 });
 

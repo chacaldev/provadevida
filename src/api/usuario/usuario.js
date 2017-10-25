@@ -1,62 +1,14 @@
 'use strict'
 var express = require('express');
 var router = express.Router();
-var axios = require('axios');
 var MongoClient = require('mongodb').MongoClient;
 
 var keys = require('../keys');
+var validar = require('./validar');
+var imagem = require('./imagem');
 
-router.post('/:cpf/validar', function (req, res) {
-  var config = {
-    headers: {
-      'Content-Type': 'application/json',
-      'app_id': keys.app_id,
-      'app_key': keys.app_key,
-    }
-  };
-
-  var payload = {
-    "image": req.body.imagem,
-    "gallery_name":"gal-" + req.params.cpf,
-    "subject_id": req.params.cpf
-  };
-
-  axios.post('https://api.kairos.com/verify', payload, config)
-    .then(function(resp) {
-      console.log(resp.data);
-      res.send(resp.data);
-    })
-    .catch(function(err) {
-      console.log(err);
-      res.send(err);
-    });  
-});
-
-router.post('/:cpf/imagem', function (req, res) {
-  var config = {
-    headers: {
-      'Content-Type': 'application/json',
-      'app_id': keys.app_id,
-      'app_key': keys.app_key,
-    }
-  };
-  
-  var payload = {
-    "image": req.body.imagem,
-    "gallery_name":"gal-" + req.params.cpf,
-    "subject_id": req.params.cpf
-  };
-
-  axios.post('https://api.kairos.com/enroll', payload, config)
-    .then(function(resp) {
-      console.log(resp.data);
-      res.send(resp.data);
-    })
-    .catch(function(err) {
-      console.log(err);
-      res.send(err);
-    });  
-});
+router.post('/:cpf/validar', validar);
+router.post('/:cpf/imagem', imagem);
 
 router.post('/', function (req, res){
   var currentTime = new Date().getTime();

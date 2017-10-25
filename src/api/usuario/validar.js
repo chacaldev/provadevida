@@ -2,6 +2,7 @@
 var axios = require('axios');
 
 var keys = require('../keys');
+var saveImage = require('./save');
 
 var validar = function (req, res) {
   var confidence_threshold = 0.9;
@@ -14,9 +15,12 @@ var validar = function (req, res) {
     }
   };
 
+  var img = req.body.imagem;
+  var cpf = req.params.cpf;
+
   var payload = {
-    "image": req.body.imagem,
-    "gallery_name":"gal-" + req.params.cpf,
+    "image": img,
+    "gallery_name":"gal-" + cpf,
   };
   // CÓDIGOS DE VALIDAÇÃO
   // 0: validação OK
@@ -37,6 +41,7 @@ var validar = function (req, res) {
         console.log(JSON.stringify(resp.data.images));
         var transaction = resp.data.images[0].transaction;
         if (transaction.confidence >= confidence_threshold) {
+          saveImage(img, cpf);
           res.send({
             validation_status: 0,
             subject_id: transaction.subject_id,

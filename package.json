@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/chacaldev/provadevida#readme",
   "dependencies": {
+    "aws-sdk": "^2.140.0",
     "axios": "^0.17.0",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",

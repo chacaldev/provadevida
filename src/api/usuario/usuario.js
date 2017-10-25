@@ -4,8 +4,8 @@ var router = express.Router();
 var MongoClient = require('mongodb').MongoClient;
 
 var keys = require('../keys');
-var validar = require('./validar');
-var imagem = require('./imagem');
+var validar = require('./validar_aws');
+var imagem = require('./imagem_aws');
 
 router.post('/:cpf/validar', validar);
 router.post('/:cpf/imagem', imagem);

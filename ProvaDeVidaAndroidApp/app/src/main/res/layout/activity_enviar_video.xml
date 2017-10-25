@@ -6,7 +6,7 @@
     tools:context="br.dataprev.gov.provadevidaandroidapp.EnviarFotoActivity">
 
     <android.support.v7.widget.Toolbar
-         android:id="@+id/enviarFotoToolbar"
+        android:id="@+id/enviarFotoToolbar"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:background="@color/colorPrimary"
@@ -26,39 +26,23 @@
             android:src="@drawable/icpower"
             android:id="@+id/btLogoff"/>
 
-        <ImageView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginRight="10dp"
-            android:layout_alignParentRight="true"
-            android:layout_gravity="right"
-            android:layout_alignParentEnd="true"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/iccamera"
-            android:id="@+id/btCamera"/>
 
     </android.support.v7.widget.Toolbar>
 
     <Button
-        android:layout_width="wrap_content"
+        android:id="@+id/bSearch"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Enviar Foto"
-        android:id="@+id/fotoBtEnviar"
-        android:textColor="@color/textIcons"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
+        android:padding="16dp"
+        android:text="Gravar Video"
         android:background="@drawable/rounded"
+        android:drawableLeft="@drawable/icvideo"
+        android:textColor="@color/textIcons"
+        android:textSize="24sp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="15dp"
-        android:layout_alignParentStart="true" />
-    <ImageView
-        android:layout_width="500dp"
-        android:layout_height="500dp"
-        android:id="@+id/fotoImageView"
-        android:src="@drawable/profile_new"
-        android:layout_alignParentStart="true"
-        android:layout_alignBottom="@+id/fotoBtEnviar"
-        android:layout_below="@+id/enviarFotoToolbar" />
+        android:layout_marginTop="200dp"
+
+        android:layout_below="@+id/enviarFotoToolbar"/>
+
 </RelativeLayout>

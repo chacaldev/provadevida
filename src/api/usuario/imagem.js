@@ -11,11 +11,13 @@ var imagem = function (req, res) {
       'app_key': keys.app_key,
     }
   };
+
+  var currentTime = new Date().getTime();
   
   var payload = {
     "image": req.body.imagem,
     "gallery_name":"gal-" + req.params.cpf,
-    "subject_id": req.params.cpf
+    "subject_id": currentTime
   };
 
   axios.post('https://api.kairos.com/enroll', payload, config)

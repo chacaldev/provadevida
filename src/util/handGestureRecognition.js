@@ -2,8 +2,8 @@ const cv = require('opencv4nodejs');
 const { grabFrames } = require('./utils');
 
 // segmenting by skin color (has to be adjusted)
-const skinColorUpper = hue => new cv.Vec(hue, 0.8 * 255, 0.6 * 255);
-const skinColorLower = hue => new cv.Vec(hue, 0.1 * 255, 0.05 * 255);
+const skinColorUpper = hue => new cv.Vec(hue, 0.8 * 255, 0.7 * 255);
+const skinColorLower = hue => new cv.Vec(hue, 0.1 * 255, 0.01 * 255);
 
 const makeHandMask = (img) => {
   // filter by skin color
@@ -116,8 +116,10 @@ const red = new cv.Vec(0, 0, 255);
 const delay = 2;
 var arr = [];
 var counter = 20;
-grabFrames('../data/interna1.mp4', delay, (frame) => {
-  const resizedImg = frame.resizeToMax(640);
+grabFrames('../data/interna6.mp4', delay, (frame) => {
+  const width = frame.cols;
+  const height = frame.rows;
+  const resizedImg = frame.resizeToMax(640).getRegion(new cv.Rect(0, 0, width*0.5, height));
 
   const handMask = makeHandMask(resizedImg);
   const handContour = getHandContour(handMask);
@@ -193,6 +195,8 @@ grabFrames('../data/interna1.mp4', delay, (frame) => {
       }
     }
   }
+
+  cv.imwrite('../data/'+new Date().getTime()+'.jpg', resizedImg);
 
   // const fontScale = 2;
   // result.putText(

@@ -75,6 +75,7 @@ public class EnviarFotoActivity extends Activity {
         toolBar.setSubtitle("Enviar fotografia");
         toolBar.setTitleTextColor(ContextCompat.getColor(getApplicationContext(), R.color.textIcons));
         toolBar.setSubtitleTextColor(ContextCompat.getColor(getApplicationContext(), R.color.textIcons));
+        toolBar.setLogo(R.drawable.iconepequeno);
         if(session.checkLogin())
             finish();
 
@@ -320,6 +321,12 @@ public class EnviarFotoActivity extends Activity {
                     dialog.cancel();
                     if( EnviarFotoActivity.codigoRetorno.equals(1L)){
                         finish();
+                        Intent i = new Intent(getApplicationContext(), EnviarVideoActivity.class);
+                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+                        // Add new Flag to start new Activity
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(i);
 
                     }
                 }

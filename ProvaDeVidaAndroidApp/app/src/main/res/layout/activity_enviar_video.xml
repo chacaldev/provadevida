@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.dataprev.gov.provadevidaandroidapp.EnviarFotoActivity">
+    tools:context="br.dataprev.gov.provadevidaandroidapp.EnviarVideoActivity">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/enviarFotoToolbar"
+        android:id="@+id/enviarVideoToolBar"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:background="@color/colorPrimary"
@@ -26,23 +26,30 @@
             android:src="@drawable/icpower"
             android:id="@+id/btLogoff"/>
 
-
     </android.support.v7.widget.Toolbar>
 
     <Button
-        android:id="@+id/bSearch"
+        android:id="@+id/btEnviarVideo"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
-        android:text="Gravar Video"
-        android:background="@drawable/rounded"
-        android:drawableLeft="@drawable/icvideo"
+        android:text="Enviar Video"
         android:textColor="@color/textIcons"
         android:textSize="24sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/rounded"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginBottom="15dp"
 
-        android:layout_below="@+id/enviarFotoToolbar"/>
+        />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:src="@drawable/instrucao"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

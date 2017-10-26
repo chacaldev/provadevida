@@ -58,6 +58,7 @@ public class MainActivity extends Activity {
         if( session.isUserLoggedIn() ){
             // Starting MainActivity
             Intent i = new Intent(getApplicationContext(), EnviarFotoActivity.class);
+            //Intent i = new Intent(getApplicationContext(), EnviarVideoActivity.class);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
             // Add new Flag to start new Activity
@@ -210,6 +211,7 @@ public class MainActivity extends Activity {
             if( result.getCodigo() == RetornoLogin.OK){
                 // Starting MainActivity
                 Intent i = new Intent(getApplicationContext(), EnviarFotoActivity.class);
+
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                 // Add new Flag to start new Activity

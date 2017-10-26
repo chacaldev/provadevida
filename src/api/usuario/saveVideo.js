@@ -13,7 +13,7 @@ var saveVideo = function(video, cpf) {
   var base64Data = video.replace(/^data:video\/mp4;base64,/, "");
   var filename = cpf+"-"+currentTime+".mp4";
   
-  require("fs").writeFile(__dirname + dir + filename, base64Data, 'base64', function(err) {
+  fs.writeFile(__dirname + dir + filename, base64Data, 'base64', function(err) {
     console.log(err);
   });
 };

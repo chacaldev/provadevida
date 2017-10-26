@@ -8,7 +8,7 @@ router.post('/', function (req, res){
   var nmBeneficio = Number(req.body.nm_beneficio);
   var dtNascimento =  Number(req.body.dt_nascimento);
 
-  MongoClient.connect('mongodb://localhost:27017/local', function(err, db) {
+  MongoClient.connect('mongodb://192.168.0.79:27017/local', function(err, db) {
     if (err) {
       throw err;
     }

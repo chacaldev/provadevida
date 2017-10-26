@@ -23,7 +23,7 @@ router.post('/', function (req, res){
     updatedAt: currentTime
   }
 
-  MongoClient.connect('mongodb://localhost:27017/local', function(err, db) {
+  MongoClient.connect('mongodb://192.168.0.79:27017/local', function(err, db) {
     if (err) {
       throw err;
     }

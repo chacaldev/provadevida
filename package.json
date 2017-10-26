@@ -19,7 +19,9 @@
   "dependencies": {
     "axios": "^0.17.0",
     "body-parser": "^1.18.2",
+    "easyimage": "^2.1.0",
     "express": "^4.16.2",
-    "mongodb": "^2.2.33"
+    "mongodb": "^2.2.33",
+    "opencv4nodejs": "^2.12.2"
   }
 }

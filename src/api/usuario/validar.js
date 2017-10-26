@@ -5,8 +5,8 @@ var keys = require('../keys');
 var saveImage = require('./save');
 
 var validar = function (req, res) {
-  var confidence_threshold = 0.9;
-  var quality_threshold = 0.3;
+  var confidence_threshold = 0.75;
+  var quality_threshold = -0.2;
   var config = {
     headers: {
       'Content-Type': 'application/json',
@@ -63,11 +63,15 @@ var validar = function (req, res) {
         }
       }
       else {
+        console.log(JSON.stringify(resp.data));
+        console.log(Array.isArray(resp.data.Errors));
         if(resp.data.Errors && Array.isArray(resp.data.Errors)) {
+          console.log('Entrou');
           var errors = resp.data.Errors;
           var resp = [];
 
           errors.map(function(error) {
+            console.log(error.ErrCode);
             if(error.ErrCode === 5002) {
               resp.push({
                 validation_status: -1,
@@ -81,10 +85,10 @@ var validar = function (req, res) {
                 mensagem: "Não foram encontradas imagens para o indivíduo informado."
               });
             }
-
-            res.status(400).send({
-              erros: resp
-            });
+          });
+          console.log(resp);
+          res.send({
+            erros: resp
           });       
         }
       }      

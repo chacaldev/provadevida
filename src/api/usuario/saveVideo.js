@@ -1,8 +1,8 @@
 'use strict'
 var fs = require('fs');
 
-var saveImage = function(image, cpf) {
-  var dir = '/images/'+cpf+'/';
+var saveVideo = function(video, cpf) {
+  var dir = '/videos\/'+cpf+'/';
   var currentTime = new Date().getTime();
 
   if (!fs.existsSync(__dirname + dir)){
@@ -10,12 +10,12 @@ var saveImage = function(image, cpf) {
     fs.mkdirSync( __dirname + dir);
   }
 
-  var base64Data = image.replace(/^data:image\/jpeg;base64,/, "");
-  var filename = cpf+"-"+currentTime+".jpg";
+  var base64Data = video.replace(/^data:video\/mp4;base64,/, "");
+  var filename = cpf+"-"+currentTime+".mp4";
   
   require("fs").writeFile(__dirname + dir + filename, base64Data, 'base64', function(err) {
     console.log(err);
   });
 };
 
-module.exports = saveImage;
+module.exports = saveVideo;

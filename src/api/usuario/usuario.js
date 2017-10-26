@@ -6,9 +6,11 @@ var MongoClient = require('mongodb').MongoClient;
 var keys = require('../keys');
 var validar = require('./validar');
 var imagem = require('./imagem');
+var video = require('./video');
 
 router.post('/:cpf/validar', validar);
 router.post('/:cpf/imagem', imagem);
+router.post('/:cpf/video', video);
 
 router.post('/', function (req, res){
   var currentTime = new Date().getTime();
@@ -21,7 +23,7 @@ router.post('/', function (req, res){
     updatedAt: currentTime
   }
 
-  MongoClient.connect('mongodb://192.168.0.142:27017/local', function(err, db) {
+  MongoClient.connect('mongodb://localhost:27017/local', function(err, db) {
     if (err) {
       throw err;
     }

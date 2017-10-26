@@ -63,3 +63,4 @@ keys.js
 # images
 *.jpg
 *.mp4
+src/api/usuario/util/.DS_Store

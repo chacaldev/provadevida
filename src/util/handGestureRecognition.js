@@ -212,14 +212,16 @@ grabFrames('../data/interna6.mp4', delay, (frame) => {
   result.copyTo(sideBySide.getRegion(new cv.Rect(0, 0, cols, rows)));
   resizedImg.copyTo(sideBySide.getRegion(new cv.Rect(cols, 0, cols, rows)));
 
-  // const originalFrame = frame.resizeToMax(640);
-  // const {rowp, colsp} = originalFrame;
-  // const pip = new cv.Mat(rowp, colsp * 2, cv.CV_8UC3);
-  // originalFrame.copyTo(pip.getRegion(new cv.Rect(0, 0, colsp, rowp)));
-  // sideBySide.copyTo(pip.getRegion(new cv.Rect(0, 0, cols, rows)));
+  const originalFrame = frame.resizeToMax(640);
+  const rowp = originalFrame.rows;
+  const colsp = originalFrame.cols;
+  const pip = new cv.Mat(rowp*2, colsp*2, cv.CV_8UC3);
+  originalFrame.copyTo(pip.getRegion(new cv.Rect(colsp, rowp, colsp, rowp)));
+  result.copyTo(pip.getRegion(new cv.Rect(0, 0, cols, rows)));
+  resizedImg.copyTo(pip.getRegion(new cv.Rect(cols, 0, cols, rows)));
 
   // originalFrame.copyTo(sideBySide.getRegion(new cv.Rect(cols*2, 0, cols, rows)));
-  cv.imwrite('../data/imagem'+frame_id+'.jpg', sideBySide);
+  cv.imwrite('../data/imagem'+frame_id+'.jpg', pip);
   frame_id++;
 
   // cv.imshow('handMask', handMask);

@@ -148,7 +148,7 @@ public class MainActivity extends Activity {
                         sb.append(line);
                         break;
                     }
-
+                    Log.i("PROVA_DE_VIDA", "======= RETORNO:"+sb.toString() + "=======");
                     in.close();
                     JSONObject json = new JSONObject(sb.toString());
                     Long objCpf = json.getLong("cpf");
@@ -161,7 +161,7 @@ public class MainActivity extends Activity {
                     retorno = new RetornoLogin(RetornoLogin.ERRO, null,null);
                 }
 
-                Log.i("PROVA_DE_VIDA", "======= RETORNO:"+retorno.getCpf() + "=======");
+
             } catch (MalformedURLException e) {
 
                 e.printStackTrace();

@@ -116,6 +116,7 @@ const red = new cv.Vec(0, 0, 255);
 const delay = 2;
 var arr = [];
 var counter = 20;
+var frame_id = 0;
 grabFrames('../data/interna6.mp4', delay, (frame) => {
   const width = frame.cols;
   const height = frame.rows;
@@ -196,22 +197,30 @@ grabFrames('../data/interna6.mp4', delay, (frame) => {
     }
   }
 
-  cv.imwrite('../data/'+new Date().getTime()+'.jpg', resizedImg);
 
-  // const fontScale = 2;
-  // result.putText(
-  //   String(numFingersUp),
-  //   new cv.Point(20, 60),
-  //   cv.FONT_ITALIC,
-  //   fontScale,
-  //   green,
-  //   { thickness: 2 }
-  // );
+  const fontScale = 2;
+  result.putText(
+    String(numFingersUp),
+    new cv.Point(20, 60),
+    cv.FONT_ITALIC,
+    fontScale,
+    green,
+    { thickness: 2 }
+  );
+  const { rows, cols } = result;
+  const sideBySide = new cv.Mat(rows, cols * 2, cv.CV_8UC3);
+  result.copyTo(sideBySide.getRegion(new cv.Rect(0, 0, cols, rows)));
+  resizedImg.copyTo(sideBySide.getRegion(new cv.Rect(cols, 0, cols, rows)));
 
-  // const { rows, cols } = result;
-  // const sideBySide = new cv.Mat(rows, cols * 2, cv.CV_8UC3);
-  // result.copyTo(sideBySide.getRegion(new cv.Rect(0, 0, cols, rows)));
-  // resizedImg.copyTo(sideBySide.getRegion(new cv.Rect(cols, 0, cols, rows)));
+  // const originalFrame = frame.resizeToMax(640);
+  // const {rowp, colsp} = originalFrame;
+  // const pip = new cv.Mat(rowp, colsp * 2, cv.CV_8UC3);
+  // originalFrame.copyTo(pip.getRegion(new cv.Rect(0, 0, colsp, rowp)));
+  // sideBySide.copyTo(pip.getRegion(new cv.Rect(0, 0, cols, rows)));
+
+  // originalFrame.copyTo(sideBySide.getRegion(new cv.Rect(cols*2, 0, cols, rows)));
+  cv.imwrite('../data/imagem'+frame_id+'.jpg', sideBySide);
+  frame_id++;
 
   // cv.imshow('handMask', handMask);
   // cv.imshow('result', sideBySide);

@@ -5,7 +5,7 @@ var saveImage = function(image, cpf) {
   var dir = '/images/'+cpf+'/';
   var currentTime = new Date().getTime();
 
-  if (!fs.existsSync(dir)){
+  if (!fs.existsSync(__dirname + dir)){
     console.log('Não existe');
     fs.mkdirSync( __dirname + dir);
   }

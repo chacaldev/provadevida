@@ -61,4 +61,6 @@ typings/
 keys.js
 
 # images
-.jpg
+*.jpg
+*.mp4
+.DS_Store
